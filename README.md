@@ -12,13 +12,13 @@ CustomAlert
     UIView* bg = [[UIView alloc] init];
     bg.backgroundColor = [UIColor colorWithRed:0.5f green:1.0f blue:0.5f alpha:0.5f];
 
-    CustomAlertView* a = [[CustomAlertView alloc] initWithNibName:@"Sample1CustomAlertView" bundle:nil];
+    UNCCustomAlertView* a = [[UNCCustomAlertView alloc] initWithNibName:@"Sample1CustomAlertView" bundle:nil];
     a.backgroundView = bg;
-    a.click = ^(CustomAlertView* view, id sender){
+    a.click = ^(UNCCustomAlertView* view, id sender){
         NSLog (@"%d", [(UIButton*)sender tag]);
         [view close];
     };
-    a.complete = ^(CustomAlertView* view){
+    a.complete = ^(UNCCustomAlertView* view){
         NSLog (@"end");
     };
 
