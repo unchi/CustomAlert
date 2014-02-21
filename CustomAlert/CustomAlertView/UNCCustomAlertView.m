@@ -5,6 +5,8 @@
 //  Created by unchi on 2013/12/27.
 //  Copyright (c) 2013年 unchi. All rights reserved.
 //
+//  @version 1.0.2
+//
 
 #import "UNCCustomAlertView.h"
 
@@ -51,10 +53,14 @@ static NSMutableArray* _pools = nil;
     CGFloat w = window.frame.size.width;
     CGFloat h = window.frame.size.height;
 
-    if (_backgroundView != nil) {
-        _mask = _backgroundView;
+    if (_backgroundView == nil) {
+        _mask = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+        _mask.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha: 0.75f];
         _mask.layer.opacity = 0;
+    } else {
+        _mask = _backgroundView;
         _mask.frame = CGRectMake(0, 0, w, h);
+        _mask.layer.opacity = 0;
     }
     
     _dialog = _view;
@@ -64,9 +70,7 @@ static NSMutableArray* _pools = nil;
 
     
     if (_isAllowDuplicateBackground || _pools.count == 1) {
-        if (_mask != nil) {
-            [window addSubview:_mask];
-        }
+        [window addSubview:_mask];
     }
     [window addSubview:_dialog];
     [window bringSubviewToFront:_dialog];
@@ -75,10 +79,9 @@ static NSMutableArray* _pools = nil;
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         
-                         if (_mask != nil) {
-                             _mask.layer.opacity = 1.0f;
-                         }
+                    
+                         _mask.layer.opacity = 1.0f;
+
                          _dialog.layer.opacity = 1.0f;
                          _dialog.layer.transform = CATransform3DMakeScale(1, 1, 1);
                      }
@@ -100,18 +103,14 @@ static NSMutableArray* _pools = nil;
     [UIView animateWithDuration:0.2f delay:0.0 options:UIViewAnimationOptionTransitionNone
 					 animations:^{
                          
-                         if (_mask != nil) {
-                             _mask.layer.opacity = 0.0f;
-                         }
+                         _mask.layer.opacity = 0.0f;
+
                          _dialog.layer.transform = CATransform3DConcat(currentTransform, CATransform3DMakeScale(0.6f, 0.6f, 1.0));
                          _dialog.layer.opacity = 0.0f;
 					 }
 					 completion:^(BOOL finished) {
 
-                         if (_mask != nil) {
-                             [_mask removeFromSuperview];
-                         }
-
+                         [_mask removeFromSuperview];
                          [_dialog removeFromSuperview];
                          
                          if (_complete) {
