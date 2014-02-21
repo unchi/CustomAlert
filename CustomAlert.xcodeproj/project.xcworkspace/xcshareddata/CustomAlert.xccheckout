@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>07D7E05B-7298-43DF-960E-67A64F0D2341</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CustomAlert</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>54ABCE1D-3335-436F-8500-4C9A2ABDB902</key>
+		<string>ssh://github.com/unchi/CustomAlert.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CustomAlert.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>54ABCE1D-3335-436F-8500-4C9A2ABDB902</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/unchi/CustomAlert.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>54ABCE1D-3335-436F-8500-4C9A2ABDB902</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>54ABCE1D-3335-436F-8500-4C9A2ABDB902</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CustomAlert</string>
+		</dict>
+	</array>
+</dict>
+</plist>

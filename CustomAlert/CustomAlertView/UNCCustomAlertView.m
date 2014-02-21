@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 unchi. All rights reserved.
 //
 
-#import "CustomAlertView.h"
+#import "UNCCustomAlertView.h"
 
 
-@interface CustomAlertView ()
+@interface UNCCustomAlertView ()
 
 @property UIView* mask;
 @property UIView* dialog;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation CustomAlertView
+@implementation UNCCustomAlertView
 
 static NSMutableArray* _pools = nil;
 

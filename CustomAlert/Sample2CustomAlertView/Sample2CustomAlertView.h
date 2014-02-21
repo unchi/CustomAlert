@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 unchi. All rights reserved.
 //
 
-#import "CustomAlertView.h"
+#import "UNCCustomAlertView.h"
 
 
-@interface Sample2CustomAlertView : CustomAlertView
+@interface Sample2CustomAlertView : UNCCustomAlertView
 
 @property NSString* title;
 @property NSString* message;

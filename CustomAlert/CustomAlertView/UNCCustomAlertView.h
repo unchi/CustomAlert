@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CustomAlertView : UIView
+@interface UNCCustomAlertView : UIView
 
-typedef void(^CustomAlertViewClickBlock)(CustomAlertView *alertView, id sender);
-typedef void(^CustomAlertViewCompleteBlock)(CustomAlertView *alertView);
+typedef void(^UNCCustomAlertViewClickBlock)(UNCCustomAlertView *alertView, id sender);
+typedef void(^UNCCustomAlertViewCompleteBlock)(UNCCustomAlertView *alertView);
 
 
 /** 表示する view を設定 */
@@ -21,9 +21,9 @@ typedef void(^CustomAlertViewCompleteBlock)(CustomAlertView *alertView);
 @property (strong, nonatomic) IBOutlet UIView* backgroundView;
 
 /** 選択 コールバック設定 */
-@property (copy, nonatomic) CustomAlertViewClickBlock click;
+@property (copy, nonatomic) UNCCustomAlertViewClickBlock click;
 /** 終了 コールバック設定 */
-@property (copy, nonatomic) CustomAlertViewCompleteBlock complete;
+@property (copy, nonatomic) UNCCustomAlertViewCompleteBlock complete;
 
 /** 表示済みの場合 背景を表示するか */
 @property bool isAllowDuplicateBackground;
