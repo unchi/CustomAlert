@@ -31,16 +31,21 @@ static NSMutableArray* _pools = nil;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
-    NSString *nibName = (nibNameOrNil) ? nibNameOrNil : NSStringFromClass([self class]);
-    UINib *nib = [UINib nibWithNibName:nibName bundle:nibBundleOrNil];
-    [nib instantiateWithOwner:self options:nil];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
+    if (self) {
+        
+        NSString *nibName = (nibNameOrNil) ? nibNameOrNil : NSStringFromClass([self class]);
+        UINib *nib = [UINib nibWithNibName:nibName bundle:nibBundleOrNil];
+        [nib instantiateWithOwner:self options:nil];
+
+        _isClose = false;
+        _isAllowDuplicateBackground = true;
     
-    _isClose = false;
-    _isAllowDuplicateBackground = true;
-    
-    // 勝手に解放されないように
-    [_pools addObject:self];
-    
+        // 勝手に解放されないように
+        [_pools addObject:self];
+    }
+
     return self;
 }
 
@@ -63,7 +68,7 @@ static NSMutableArray* _pools = nil;
         _mask.layer.opacity = 0;
     }
     
-    _dialog = _view;
+    _dialog = self.view;
     _dialog.center = window.rootViewController.view.center;
     _dialog.layer.opacity = 0.5f;
     _dialog.layer.transform = CATransform3DMakeScale(1.3f, 1.3f, 1.0);
@@ -72,6 +77,7 @@ static NSMutableArray* _pools = nil;
     if (_isAllowDuplicateBackground || _pools.count == 1) {
         [window addSubview:_mask];
     }
+    
     [window addSubview:_dialog];
     [window bringSubviewToFront:_dialog];
     
@@ -120,6 +126,11 @@ static NSMutableArray* _pools = nil;
 	 ];
     
     [_pools removeObject:self];
+}
+
+- (CGPoint)windowCenter {
+    UIWindow* window = [UIApplication sharedApplication].keyWindow;
+    return window.rootViewController.view.center;
 }
 
 @end

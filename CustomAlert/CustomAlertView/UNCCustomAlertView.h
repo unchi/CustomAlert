@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface UNCCustomAlertView : UIView
+@interface UNCCustomAlertView : UIViewController
 
 typedef void(^UNCCustomAlertViewClickBlock)(UNCCustomAlertView *alertView, id sender);
 typedef void(^UNCCustomAlertViewCompleteBlock)(UNCCustomAlertView *alertView);
 
 
 /** 表示する view を設定 */
-@property (strong, nonatomic) IBOutlet UIView* view;
+//@property (strong, nonatomic) IBOutlet UIView* view;
 /** 表示する Background view を設定 */
 @property (strong, nonatomic) IBOutlet UIView* backgroundView;
 
@@ -38,5 +38,8 @@ typedef void(^UNCCustomAlertViewCompleteBlock)(UNCCustomAlertView *alertView);
 - (void)show;
 /** 閉じる */
 - (void)close;
+
+
+- (CGPoint)windowCenter;
 
 @end

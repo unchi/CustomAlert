@@ -10,7 +10,7 @@
 
 @interface Sample2CustomAlertView ()
 
-@property (weak, nonatomic) IBOutlet UILabel *textTitle;
+@property (weak, nonatomic) IBOutlet UILabel *textSubject;
 @property (weak, nonatomic) IBOutlet UILabel *textMessage;
 
 
@@ -26,10 +26,11 @@
     
     return self;
 }
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     
-- (void)show {
-    
-    _textTitle.text = _title;
+    _textSubject.text = _subject;
     _textMessage.text = _message;
     
     const float b = _textMessage.frame.size.height;
@@ -38,15 +39,12 @@
     const float a = _textMessage.frame.size.height;
     const float d = a - b;
     
-    CGRect frame = CGRectMake(
-                              0,
-                              0,
+    CGRect frame = CGRectMake(0, 0,
                               self.view.frame.size.width,
                               self.view.frame.size.height + d);
-    
+
     self.view.frame = frame;
-    
-    [super show];
+    self.view.center = [self windowCenter];
 }
 
 @end

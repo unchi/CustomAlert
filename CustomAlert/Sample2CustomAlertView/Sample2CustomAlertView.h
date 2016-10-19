@@ -11,7 +11,7 @@
 
 @interface Sample2CustomAlertView : UNCCustomAlertView
 
-@property NSString* title;
+@property NSString* subject;
 @property NSString* message;
 
 @end

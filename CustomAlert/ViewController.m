@@ -58,9 +58,9 @@
     Sample2CustomAlertView* a = [[Sample2CustomAlertView alloc] init];
 
     a.message = @"こんにちは世界！\nこんばんは世界！";
-    a.title = @"サンプルアラート";
+    a.subject = @"サンプルアラート";
     a.click = ^(UNCCustomAlertView* view, id sender){
-        NSLog (@"%d", [(UIButton*)sender tag]);
+        NSLog (@"%ld", (long)[(UIButton*)sender tag]);
         [view close];
     };
     a.complete = ^(UNCCustomAlertView* view){
